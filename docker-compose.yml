@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
   # best news app <3
   goldennews:
     image: ghcr.io/canureal/goldennews:latest
