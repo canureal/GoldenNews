@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:latest
-    container_name: shop-postgres
+    container_name: goldennewspg
     environment:
       POSTGRES_DB: ${DATABASE_DB}
       POSTGRES_USER: ${DATABASE_USER}
@@ -10,6 +10,18 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  # best news app <3
+  goldennews:
+    image: ghcr.io/canureal/goldennews:latest
+    container_name: goldennews
+    environment:
+      DATABASE_DB: ${DATABASE_DB}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
 
 volumes:
   postgres_data:
