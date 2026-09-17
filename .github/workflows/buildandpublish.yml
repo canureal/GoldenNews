@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [main]
 
-  jobs:
+jobs:
+  build:
     runs-on: ubuntu-latest
 
     permissions:
@@ -14,17 +15,17 @@ on:
       packages: write
 
     steps:
-      - name: checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: login to ghcr
+      - name: Login to GHCR
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GH_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Lowercase repository name for Docker tag
+      - name: Lowercase repository name
         id: string_case
         uses: ASzc/change-string-case-action@v6
         with:
@@ -36,5 +37,4 @@ on:
           context: .
           file: Dockerfile
           push: true
-          tags: |
-            ghcr.io/${{ steps.string_case.outputs.lowercase }}:latest 
+          tags: ghcr.io/${{ steps.string_case.outputs.lowercase }}:latest
