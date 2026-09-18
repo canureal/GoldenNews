@@ -1,1 +1,1 @@
-rootProject.name = "goldennews"
+rootProject.name = "canurealblog"

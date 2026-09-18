@@ -6,7 +6,7 @@ plugins {
 
 group = "org.canureal"
 version = "0.0.1-SNAPSHOT"
-description = "GoldenNews"
+description = "CanurealBlog"
 
 java {
     toolchain {

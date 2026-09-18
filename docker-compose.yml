@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:latest
-    container_name: goldennewspg
+    container_name: canurealblogpg
     environment:
       POSTGRES_DB: ${DATABASE_DB}
       POSTGRES_USER: ${DATABASE_USER}
@@ -11,9 +11,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql
   # best news app <3
-  goldennews:
-    image: ghcr.io/canureal/goldennews:latest
-    container_name: goldennews
+  canurealblog:
+    image: ghcr.io/canureal/canurealblog:latest
+    container_name: canurealblog
     environment:
       DATABASE_DB: ${DATABASE_DB}
       DATABASE_USER: ${DATABASE_USER}
