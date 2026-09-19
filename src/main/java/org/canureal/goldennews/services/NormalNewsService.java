@@ -50,6 +50,17 @@ public class NormalNewsService {
                 saved.getReleaseDate()
         );
     }
+     
+    public List<NewsDto.Response> getLatestNews() {
+      return newsRepository.findAllByOrderByReleaseDateDesc()
+        .stream()
+        .map(news -> new NewsDto.Response(
+              news.getNewsId();
+              news.getTitle();
+              news.getContents();
+              news.getReleaseDate();
+        )).toList();
+    }
 
     public List<NewsDto.Response> getAllNews() {
         return newsRepository.findAll()

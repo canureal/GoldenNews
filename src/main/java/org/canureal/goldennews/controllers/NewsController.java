@@ -23,6 +23,11 @@ public class NewsController {
     public NewsDto.Response updateNews(@Valid @RequestBody NewsDto.Update dto, @PathVariable @RequestParam Long newsId) {
         return newsService.updateNews(newsId, dto);
     }
+    
+    @GetMapping("/getlatestnews")
+    public List<NewsDto.Response> getLatestNews() {
+        return newsService.getLatestNews();
+    }
 
     @GetMapping("/getallnews")
     public List<NewsDto.Response> getAllNews() {
