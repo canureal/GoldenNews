@@ -55,10 +55,10 @@ public class NormalNewsService {
       return newsRepository.findAllByOrderByReleaseDateDesc()
         .stream()
         .map(news -> new NewsDto.Response(
-              news.getNewsId();
-              news.getTitle();
-              news.getContents();
-              news.getReleaseDate();
+              news.getNewsId(),
+              news.getTitle(),
+              news.getContents(),
+              news.getReleaseDate()
         )).toList();
     }
 
